@@ -8,11 +8,14 @@
 
     <!-- CSS & Styling -->
     <link rel="stylesheet" href="styles/index.css">
-
-
-    <!-- External Scripts -->
-    <script defer src="src/index.js" charset="utf-8"></script>
-
+    <!-- Assign all scripts here, make sure they're all deferred so html loads first -->
+    <script defer src="src/services/api.js"></script>
+    <script defer src="src/models/comment.js"></script>
+    <script defer src="src/models/post.js"></script>
+    <!-- ALWAYS load the index.js last -->
+    <script defer src="src/index.js"></script>
+    <meta charset="utf-8">
+    <title>Caffeine Me</title>
 </head>
 
 <body>
