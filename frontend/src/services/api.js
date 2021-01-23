@@ -27,6 +27,13 @@ class API {
     get commmentURL() {
         return this.url + '/comments'
     }
-  
+
+    fetchPosts = () => {
+        return fetch(this.postURL).then(this.parseJSON)
+    }
+
+    fetchPost = (id) => {
+        return fetch(this.postURL + `/${id}`).then(this.parseJSON)
+    }
   }
   
