@@ -14,10 +14,9 @@ ActiveRecord::Schema.define(version: 2021_01_23_192224) do
 
   create_table "comments", force: :cascade do |t|
     t.string "summary"
-    t.integer "drink_id", null: false
+    t.integer "drink_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["drink_id"], name: "index_comments_on_drink_id"
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -27,5 +26,4 @@ ActiveRecord::Schema.define(version: 2021_01_23_192224) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "comments", "drinks"
 end
