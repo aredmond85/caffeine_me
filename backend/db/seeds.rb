@@ -5,7 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Post.create(name: "Monster Original", caffeine: "160 mg")
-
-Comment.create(summary: "My favorite energy drink.", post_id: 1)
