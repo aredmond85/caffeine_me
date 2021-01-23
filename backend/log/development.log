@@ -289,3 +289,112 @@ Processing by DrinksController#index as HTML
 Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.6ms | Allocations: 4576)
 
 
+Started GET "/" for 127.0.0.1 at 2021-01-23 14:47:05 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marrix/.rvm/gems/ruby-2.6.1/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marrix/.rvm/gems/ruby-2.6.1/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.7ms | Allocations: 480)
+Completed 200 OK in 28ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 4149)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-01-23 14:47:06 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/posts" for ::1 at 2021-01-23 14:48:09 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/posts" for ::1 at 2021-01-23 14:48:51 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/drinks" for ::1 at 2021-01-23 14:49:11 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.6ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 5.7ms | ActiveRecord: 1.1ms | Allocations: 5622)
+
+
+Started POST "/comments" for ::1 at 2021-01-23 14:52:31 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.5ms | Allocations: 132)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/comments_controller.rb:17:in `comment_params'
+app/controllers/comments_controller.rb:9:in `create'
+Started POST "/comments" for ::1 at 2021-01-23 14:55:31 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>1, "comment"=>{"drink_id"=>1}}
+[31mUnpermitted parameter: :drink_id[0m
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 4978)
+
+
+Started GET "/drinks" for ::1 at 2021-01-23 14:59:50 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 879)
+
+
+Started GET "/drinks" for ::1 at 2021-01-23 15:00:25 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 878)
+
+
+Started POST "/drinks" for ::1 at 2021-01-23 15:10:55 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Test Drink", "caffeine"=>"51 mg", "drink"=>{"name"=>"Test Drink", "caffeine"=>"51 mg"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/drinks_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:15:in `create'
+  [1m[36mDrink Create (1.1ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Test Drink"], ["caffeine", "51 mg"], ["created_at", "2021-01-23 21:10:55.654979"], ["updated_at", "2021-01-23 21:10:55.654979"]]
+  ↳ app/controllers/drinks_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:15:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 2431)
+
+
+Started GET "/" for 127.0.0.1 at 2021-01-23 15:11:03 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marrix/.rvm/gems/ruby-2.6.1/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marrix/.rvm/gems/ruby-2.6.1/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.1ms | Allocations: 196)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 833)
+
+
+Started GET "/drinks" for 127.0.0.1 at 2021-01-23 15:11:07 -0600
+Processing by DrinksController#index as HTML
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 963)
+
+
+Started DELETE "/drinks/4" for ::1 at 2021-01-23 15:15:55 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"4", "drink"=>{}}
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:26:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `destroy'
+  [1m[36mDrink Destroy (0.4ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/drinks_controller.rb:20:in `destroy'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `destroy'
+Completed 204 No Content in 14ms (ActiveRecord: 1.6ms | Allocations: 3585)
+
+
+Started GET "/drinks" for 127.0.0.1 at 2021-01-23 15:16:54 -0600
+Processing by DrinksController#index as HTML
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 857)
+
+
