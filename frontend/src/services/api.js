@@ -20,7 +20,7 @@ class API {
   
     // Attribute Getters //
   
-    get postURL() {
+    get drinkURL() {
         return this.url + '/posts'
     }
 
@@ -28,11 +28,11 @@ class API {
         return this.url + '/comments'
     }
 
-    fetchPosts = () => {
+    fetchDrinks = () => {
         return fetch(this.postURL).then(this.parseJSON)
     }
 
-    fetchPost = (id) => {
+    fetchDrink = (id) => {
         return fetch(this.postURL + `/${id}`).then(this.parseJSON)
     }
   }
