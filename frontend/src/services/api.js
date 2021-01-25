@@ -27,13 +27,13 @@ class API {
     return this.url + '/drinks'
   }
 
-  get commmentURL() {
+  get commentURL() {
     return this.url + '/comments'
   }
 
     // Drink Requests //
   fetchDrinks = () => {
-    return fetch(this.drinkURL).then(console.log(this.parseJSON))
+    return fetch(this.drinkURL).then(this.parseJSON)
   }
 
   fetchDrink = (id) => {
@@ -63,12 +63,25 @@ class API {
 
   // Comment Requests //
   fetchComments = () => {
-    return fetch(this.commmentURL).then(this.parseJSON)
+    return fetch(this.commentURL).then(this.parseJSON)
   }
 
   fetchComment = (id) => {
-    return fetch(this.commmentURL + `/${id}`).then(this.parseJSON)
+    return fetch(this.commentURL + `/${id}`).then(this.parseJSON)
   }
 
- 
+  postComment = (drinkId) => {
+    return fetch(this.commentURL, {
+      method: "POST",
+      headers: this.headers,
+      body: JSON.stringify({drink_id: drinkId})
+    }).then(this.parseJSON)
+  }
+
+  deleteComment = (id) => {
+    return fetch(this.commentURL + `/${id}`, {
+      method: "DELETE",
+      headers: this.headers
+    }).then(this.parseJSON)
+  }
 }
