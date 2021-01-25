@@ -3,7 +3,16 @@ class CommentsController < ApplicationController
         @comments = Comment.all
 
         render json: @comments, except: [:created_at, :updated_at]
-    end 
+    end
+    
+    def show 
+        comment = Comment.find_by_id(params[:id])
+        if !comment
+            render json: { error: "No comment found by that ID", status:400 }, status: 400
+        else
+            render json: comment, include: [:drink]
+        end
+    end
 
     def create 
         comment = Comment.create(comment_params)

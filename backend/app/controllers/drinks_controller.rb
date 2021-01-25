@@ -4,11 +4,16 @@ class DrinksController < ApplicationController
     def index
         @drinks = Drink.all
 
-        render json: @drinks, except: [:created_at, :updated_at]
+        render json: @drinks, include: [:comments], except: [:created_at, :updated_at]
     end
 
     def show 
-        render json: @drink , except: [:created_at, :updated_at]
+        drink = Drink.find_by_id(params[:id])
+        if !drink
+            render json: { error: "No drink found by that ID", status:400 }, status: 400
+        else
+            render json: drink, include: [:comments]
+        end
     end
 
     def create 
