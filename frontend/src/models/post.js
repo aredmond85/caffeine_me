@@ -1,6 +1,0 @@
-class Post  {
-
-    constructor() {
-        
-    }
-}
