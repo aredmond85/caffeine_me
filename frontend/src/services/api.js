@@ -40,27 +40,6 @@ class API {
     return fetch(this.drinkURL + `/${id}`).then(this.parseJSON)
   }
 
-  createDrink(DrinkName, CaffeineContent) {
-    const drink = {
-      name: DrinkName,
-      caffeine: CaffeineContent
-    }
-
-    return fetch(this.drinkURL, {
-      method: "POST",
-      headers: this.headers,
-      body: JSON.stringify(drink)
-    })
-    .then(this.parseJSON)
-  }
-
-  deleteDrink(id) {
-    return fetch(this.drinkURL + `/${id}`, {
-      method: 'DELETE',
-      headers: this.headers
-    })
-  }
-
   // Comment Requests //
   fetchComments = () => {
     return fetch(this.commentURL).then(this.parseJSON)
