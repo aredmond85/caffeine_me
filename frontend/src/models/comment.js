@@ -1,15 +1,16 @@
 class Comment  {
 
-    constructor(data) {
+    constructor(data, drink) {
         // Object.keys(data).forEach(key => this[key] = data[key])
         this.id = data.id
         this.summary = data.summary
+        this.drink = drink
     }
 
     // Helpers //
 
     delete = () => {
-        // remove itself from the DOM
-        // send a delete request to the backend
+        api.deleteComment(this.id)
+        delete this
     }
 }
