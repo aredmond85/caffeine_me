@@ -20,6 +20,16 @@ class CommentsController < ApplicationController
         render json: comment, status: 200
     end 
 
+    def destroy
+        comment = Comment.find_by_id(params[:id])
+        if !comment
+          render json: { error: "No comment by that ID", status: 400 }, status: 400
+        else
+          comment.destroy
+          render json: comment, include: [:drink]
+        end
+    end
+
     private 
 
     def comment_params 
