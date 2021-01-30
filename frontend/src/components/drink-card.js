@@ -19,7 +19,7 @@ class DrinkCard {
 
         // Adds Create Comment Button //
         const addButton = document.createElement('button')
-        addButton.innerText = "Add Review"
+        addButton.innerText = "Add Comment"
         card.append(addButton)
         addButton.addEventListener("click", drink.createComment)
 
