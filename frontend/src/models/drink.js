@@ -15,9 +15,9 @@ class Drink {
 
     createDrink = () => {
         api.postDrink(this.id)
-            .then(comment => {
-                const newComment = new Comment(comment)
-                this.card.addCommentLi(newComment)
+            .then(drink => {
+                const newDrink = new Drink(drink)
+                this.card.addCommentLi(newDrink)
             })
             .catch(console.log)
     }

@@ -5021,3 +5021,18 @@ Processing by DrinksController#index as */*
 Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1490)
 
 
+Started GET "/drinks" for ::1 at 2021-01-30 14:15:49 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 1491)
+
+
+Started POST "/comments" for ::1 at 2021-01-30 14:15:53 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"summary"=>"test", "comment"=>{"summary"=>"test"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 444)
+
+
