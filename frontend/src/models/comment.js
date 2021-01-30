@@ -7,14 +7,14 @@ class Comment  {
         this.drink = drink
     }
 
-    createComment = () => {
-        api.postComment(this.id)
-            .then(comment => {
-                const newComment = new Comment(comment)
-                this.card.addCommentLi(newComment)
-            })
-            .catch(console.log)
-    }
+    // createComment = () => {
+    //     api.postComment(this.id)
+    //         .then(comment => {
+    //             const newComment = new Comment(comment)
+    //             this.card.addCommentLi(newComment)
+    //         })
+    //         .catch(console.log)
+    // }
 
     delete = () => {
         api.deleteComment(this.id)
