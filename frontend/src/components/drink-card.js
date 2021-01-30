@@ -25,8 +25,9 @@ class DrinkCard {
 
         const commentText = document.createElement("input");
         commentText.setAttribute("type", "text");
-        commentText.setAttribute("value", "Enter a short comment");
+        commentText.setAttribute("placeholder", "Enter A Comment")
         card.append(commentText);
+
 
         // Add Comment List //
         this.commentList = document.createElement('ul')
