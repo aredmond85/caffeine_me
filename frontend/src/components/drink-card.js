@@ -68,15 +68,10 @@ class DrinkCard {
 
     // Event Handlers //
     handleAddComment = () => {
-        const commentSummary = document.getElementById("commentInput")
+        const commentSummary = document.getElementById("commentInput").value
 
-        api.addComment(this.id, commentSummary.value, this.drink)
-            .then(comment => {
-                const newComment = new Comment(comment)
-                commentSummary.value = " "
-                console.log(newComment)
-                this.comments.push(newComment)
-            })
+        console.log(this.addCommentLi(commentSummary))
+        console.log(commentSummary)
 
     }
 
