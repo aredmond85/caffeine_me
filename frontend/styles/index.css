@@ -19,8 +19,8 @@ body {
 
   div.card {
     background-color: #eeeeee;
-    height: 300px;
-    width: 300px;
+    height: auto;
+    width: 500px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
@@ -36,17 +36,19 @@ body {
     font-size: 1.05em;
     list-style: none;
     padding-right: 20px;
+    padding-top: 10px;
   }
 
 
+/* 
   @media only screen and (min-width: 500px) {
     main {
       grid-template-columns: 1fr 1fr;
     }
-  }
+  } */
 
-  @media only screen and (min-width: 850px) {
+  /* @media only screen and (min-width: 850px) {
     main {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-  }
+  } */

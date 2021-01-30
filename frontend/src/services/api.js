@@ -21,6 +21,10 @@ class API {
     "Content-Type": "application/json"
   }
 
+  catchError = error => {
+    console.log("Error: " + error)
+  }
+
   // Attribute Getters //
 
   get drinkURL() {
@@ -31,7 +35,7 @@ class API {
     return this.url + '/comments'
   }
 
-    // Drink Requests //
+  // Drink Requests //
   fetchDrinks = () => {
     return fetch(this.drinkURL).then(this.parseJSON)
   }
@@ -49,18 +53,36 @@ class API {
     return fetch(this.commentURL + `/${id}`).then(this.parseJSON)
   }
 
+  createComment(commentId, commentSummary) {
+    const comment = {
+      data_id: commentId,
+      summary: commentSummary
+    }
+
+    return fetch(this.commentURL, {
+        method: "POST",
+        headers: this.headers,
+        body: JSON.stringify(comment)
+      }).then(this.parseJSON)
+      .catch(this.catchError)
+  }
+
   postComment = (drinkId) => {
     return fetch(this.commentURL, {
-      method: "POST",
-      headers: this.headers,
-      body: JSON.stringify({drink_id: drinkId})
-    }).then(this.parseJSON)
+        method: "POST",
+        headers: this.headers,
+        body: JSON.stringify({
+          drink_id: drinkId
+        })
+      }).then(this.parseJSON)
+      .catch(this.catchError)
   }
 
   deleteComment = (id) => {
     return fetch(this.commentURL + `/${id}`, {
-      method: "DELETE",
-      headers: this.headers
-    }).then(this.parseJSON)
+        method: "DELETE",
+        headers: this.headers
+      }).then(this.parseJSON)
+      .catch(this.catchError)
   }
 }

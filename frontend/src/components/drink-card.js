@@ -4,6 +4,7 @@ class DrinkCard {
     constructor(drink, comments) {
         // Create Card //
         const card = document.createElement('div')
+        card.setAttribute("class", "card w-50")
         main.append(card)
         card.className = 'card'
 
@@ -17,17 +18,20 @@ class DrinkCard {
         caffeineTag.innerText = `Caffeine Amount - ${drink.caffeine}`
         card.append(caffeineTag)
 
+        // Adds Create Comment Input Field //
+        const commentInput = document.createElement("input");
+        commentInput.setAttribute("type", "text");
+        commentInput.setAttribute("class", "input-group mb-3")
+        commentInput.setAttribute("id", "commentInput")
+        commentInput.setAttribute("placeholder", "Enter A Comment")
+        card.append(commentInput);
+
         // Adds Create Comment Button //
         const addCommentButton = document.createElement('button')
         addCommentButton.innerText = "Add Comment"
+        addCommentButton.setAttribute("class", "btn btn-primary btn-sm")
         card.append(addCommentButton)
-        // addButton.addEventListener("click", drink.createComment)
-
-        const commentText = document.createElement("input");
-        commentText.setAttribute("type", "text");
-        commentText.setAttribute("placeholder", "Enter A Comment")
-        card.append(commentText);
-
+        addCommentButton.addEventListener("click", () => this.handleAddComment())
 
         // Add Comment List //
         this.commentList = document.createElement('ul')
@@ -37,9 +41,10 @@ class DrinkCard {
 
         // Create Delete Drink Button
         const addDeleteButton = document.createElement('button')
+        addDeleteButton.setAttribute("class", "btn btn-danger btn-sm")
         addDeleteButton.innerText = 'Delete Drink'
         card.append(addDeleteButton)
-        // // button.addEventListener("click", )
+        // addDeleteButton.addEventListener("click", )
 
         // Connects to Drink //
         this.drink = drink
@@ -55,6 +60,7 @@ class DrinkCard {
 
         // Create Delete Button
         const button = document.createElement('button')
+        button.setAttribute("class", "btn btn-link btn-sm")
         button.innerText = 'Delete'
         li.append(button)
         button.addEventListener("click", () => this.handleDeleteComment(comment, li))
@@ -63,6 +69,23 @@ class DrinkCard {
     handleDeleteComment = (comment, li) => {
         comment.delete()
         li.remove()
+    }
+
+    handleAddComment = () => {
+        const commentSummary = document.getElementById("commentInput")
+
+        api.createComment(this.id, commentSummary.value, this.drink)
+            .then(comment => {
+                const newComment = new Comment(comment)
+                commentSummary.value = " "
+                console.log(newComment)
+                this.comments.push(newComment)
+            })
+
+    }
+
+    handleDeleteDrink = () => {
+
     }
 
 }
