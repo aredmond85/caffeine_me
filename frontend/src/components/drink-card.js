@@ -18,12 +18,12 @@ class DrinkCard {
         card.append(caffeineTag)
 
         // Adds Create Comment Button //
-        const addButton = document.createElement('button')
-        addButton.innerText = "Add Comment"
-        card.append(addButton)
-        addButton.addEventListener("click", drink.createComment)
+        const addCommentButton = document.createElement('button')
+        addCommentButton.innerText = "Add Comment"
+        card.append(addCommentButton)
+        // addButton.addEventListener("click", drink.createComment)
 
-        const commentText= document.createElement("input");
+        const commentText = document.createElement("input");
         commentText.setAttribute("type", "text");
         commentText.setAttribute("value", "Enter a short comment");
         card.append(commentText);
@@ -33,6 +33,12 @@ class DrinkCard {
         card.append(this.commentList)
 
         comments.forEach(comment => this.addCommentLi(comment))
+
+        // Create Delete Drink Button
+        const addDeleteButton = document.createElement('button')
+        addDeleteButton.innerText = 'Delete Drink'
+        card.append(addDeleteButton)
+        // // button.addEventListener("click", )
 
         // Connects to Drink //
         this.drink = drink
