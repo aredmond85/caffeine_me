@@ -66,11 +66,7 @@ class DrinkCard {
         button.addEventListener("click", () => this.handleDeleteComment(comment, li))
     }
 
-    handleDeleteComment = (comment, li) => {
-        comment.delete()
-        li.remove()
-    }
-
+    // Event Handlers //
     handleAddComment = () => {
         const commentSummary = document.getElementById("commentInput")
 
@@ -82,6 +78,11 @@ class DrinkCard {
                 this.comments.push(newComment)
             })
 
+    }
+
+    handleDeleteComment = (comment, li) => {
+        comment.delete()
+        li.remove()
     }
 
     handleDeleteDrink = (drink, card) => {
