@@ -53,7 +53,17 @@ class API {
     return fetch(this.commentURL + `/${id}`).then(this.parseJSON)
   }
 
-  createComment(commentId, commentSummary) {
+  deleteDrink = (id) => {
+    return fetch(this.drinkURL + `/${id}`, {
+        method: "DELETE",
+        headers: this.headers
+      }).then(this.parseJSON)
+      .catch(this.catchError)
+  }
+
+
+  // Comment POST/DELETE/Add Functions
+  addComment(commentId, commentSummary) {
     const comment = {
       data_id: commentId,
       summary: commentSummary

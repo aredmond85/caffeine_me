@@ -44,7 +44,7 @@ class DrinkCard {
         addDeleteButton.setAttribute("class", "btn btn-danger btn-sm")
         addDeleteButton.innerText = 'Delete Drink'
         card.append(addDeleteButton)
-        // addDeleteButton.addEventListener("click", )
+        addDeleteButton.addEventListener("click", () => this.handleDeleteDrink(drink, card))
 
         // Connects to Drink //
         this.drink = drink
@@ -74,7 +74,7 @@ class DrinkCard {
     handleAddComment = () => {
         const commentSummary = document.getElementById("commentInput")
 
-        api.createComment(this.id, commentSummary.value, this.drink)
+        api.addComment(this.id, commentSummary.value, this.drink)
             .then(comment => {
                 const newComment = new Comment(comment)
                 commentSummary.value = " "
@@ -84,8 +84,8 @@ class DrinkCard {
 
     }
 
-    handleDeleteDrink = () => {
-
+    handleDeleteDrink = (drink, card) => {
+        drink.delete()
+        card.remove()
     }
-
 }

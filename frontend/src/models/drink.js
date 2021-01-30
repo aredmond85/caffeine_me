@@ -21,4 +21,9 @@ class Drink {
             })
             .catch(console.log)
     }
+
+    delete = () => {
+        api.deleteComment(this.id)
+        delete this
+    }
 }
