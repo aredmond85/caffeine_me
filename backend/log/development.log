@@ -4958,3 +4958,66 @@ Processing by CommentsController#destroy as */*
 Completed 400 Bad Request in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 506)
 
 
+Started GET "/drinks" for ::1 at 2021-01-30 14:12:31 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 2]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 27ms (Views: 20.0ms | ActiveRecord: 1.3ms | Allocations: 15554)
+
+
+Started DELETE "/drinks/1" for ::1 at 2021-01-30 14:12:33 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"1", "drink"=>{}}
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.4ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 5ms (ActiveRecord: 1.3ms | Allocations: 1938)
+
+
+Started GET "/drinks" for ::1 at 2021-01-30 14:13:03 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 2]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 2290)
+
+
+Started DELETE "/drinks/2" for ::1 at 2021-01-30 14:13:36 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"2", "drink"=>{}}
+  [1m[36mDrink Load (0.5ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 5ms (ActiveRecord: 1.8ms | Allocations: 1759)
+
+
+Started GET "/drinks" for ::1 at 2021-01-30 14:13:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1490)
+
+

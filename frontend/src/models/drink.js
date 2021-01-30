@@ -23,7 +23,7 @@ class Drink {
     }
 
     delete = () => {
-        api.deleteComment(this.id)
+        api.deleteDrink(this.id)
         delete this
     }
 }
