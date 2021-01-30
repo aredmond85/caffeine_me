@@ -13,14 +13,6 @@ class Drink {
         this.card = new DrinkCard(this, comments)
     }
 
-    createDrink = () => {
-        api.postDrink(this.id)
-            .then(drink => {
-                const newDrink = new Drink(drink)
-            })
-            .catch(console.log)
-    }
-
     delete = () => {
         api.deleteDrink(this.id)
         delete this
