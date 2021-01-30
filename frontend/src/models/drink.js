@@ -17,7 +17,6 @@ class Drink {
         api.postDrink(this.id)
             .then(drink => {
                 const newDrink = new Drink(drink)
-                this.card.addCommentLi(newDrink)
             })
             .catch(console.log)
     }
