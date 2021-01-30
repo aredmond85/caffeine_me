@@ -8,15 +8,25 @@ class DrinkCard {
         card.className = 'card'
 
         // Add Nameplate //
-        const nameTag = document.createElement('p')
-        nameTag.innerText = drink.name
-        card.append(nameTag)
+        const drinkTag = document.createElement('p')
+        drinkTag.innerText = drink.name
+        card.append(drinkTag)
+
+        // Add CaffeinePlate //
+        const caffeineTag = document.createElement('p')
+        caffeineTag.innerText = `Caffeine Amount - ${drink.caffeine}`
+        card.append(caffeineTag)
 
         // Adds Create Comment Button //
         const addButton = document.createElement('button')
-        addButton.innerText = "Add Comment"
+        addButton.innerText = "Add Review"
         card.append(addButton)
-        addButton.addEventListener("click", drink.createPokemon)
+        addButton.addEventListener("click", drink.createComment)
+
+        const commentText= document.createElement("input");
+        commentText.setAttribute("type", "text");
+        commentText.setAttribute("value", "Enter a short comment");
+        card.append(commentText);
 
         // Add Comment List //
         this.commentList = document.createElement('ul')
