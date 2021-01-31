@@ -53,6 +53,20 @@ class API {
     return fetch(this.commentURL + `/${id}`).then(this.parseJSON)
   }
 
+  addDrink(name, caffeine) {
+    const drink = {
+      name: name,
+      caffeine: caffeine
+    }
+
+    return fetch(this.drinkURL, {
+        method: "POST",
+        headers: this.headers,
+        body: JSON.stringify(drink)
+      }).then(this.parseJSON)
+      .catch(this.catchError)
+  }
+
   deleteDrink = (id) => {
     return fetch(this.drinkURL + `/${id}`, {
         method: "DELETE",

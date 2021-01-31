@@ -13,9 +13,9 @@
 
     <!-- Assign all scripts here, make sure they're all deferred so html loads first -->
     <script defer src="src/services/api.js"></script>
-    <script defer src="src/components/drink-card.js"></script>
     <script defer src="src/models/drink.js"></script>
     <script defer src="src/models/comment.js"></script>
+    <script defer src="src/components/drink-card.js"></script>
 
     <!-- ALWAYS load the index.js last -->
     <script defer src="src/index.js"></script>
@@ -32,10 +32,10 @@
     <main>
         <form id="newDrinkForm">
             <label for="drink-name">Drink Name: </label>
-            <input id="drink-name" name="drink-name" type="text" placeholder="Name of Drink">
+            <input id="drink-name" name="name" type="text" placeholder="Name of Drink">
             <br>
             <label for="drink-caffeine">Caffeine Amount: </label>
-            <input id="drink-caffeine" name="drink-caffeine" type="text" placeholder="Caffeine in mg">
+            <input id="drink-caffeine" name="caffeine" type="text" placeholder="Caffeine in mg">
             <br>
             <!-- <label for="drink-url">Add A Drink: </label>
             <input id="drink-url" name="drink-url" type="text" placeholder="Place url here"> -->
