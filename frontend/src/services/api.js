@@ -61,11 +61,10 @@ class API {
       .catch(this.catchError)
   }
 
-
   // Comment POST/DELETE/Add Functions
-  addComment(commentId, commentSummary) {
+  addComment(drinkId, commentSummary) {
     const comment = {
-      data_id: commentId,
+      drink_id: drinkId,
       summary: commentSummary
     }
 

@@ -1,20 +1,10 @@
 class Comment  {
 
-    constructor(data, drink) {
-        // Object.keys(data).forEach(key => this[key] = data[key])
+    constructor(data) {
         this.id = data.id
         this.summary = data.summary
-        this.drink = drink
+        this.drinkId = data.drink_id
     }
-
-    // createComment = () => {
-    //     api.postComment(this.id)
-    //         .then(comment => {
-    //             const newComment = new Comment(comment)
-    //             this.card.addCommentLi(newComment)
-    //         })
-    //         .catch(console.log)
-    // }
 
     delete = () => {
         api.deleteComment(this.id)

@@ -22,7 +22,7 @@ class DrinkCard {
         const commentInput = document.createElement("input");
         commentInput.setAttribute("type", "text");
         commentInput.setAttribute("class", "input-group mb-3")
-        commentInput.setAttribute("id", "commentInput")
+        commentInput.setAttribute("id", `commentInput-${drink.id}`)
         commentInput.setAttribute("placeholder", "Enter A Comment")
         card.append(commentInput);
 
@@ -68,11 +68,12 @@ class DrinkCard {
 
     // Event Handlers //
     handleAddComment = () => {
-        const commentSummary = document.getElementById("commentInput").value
-
-        console.log(this.addCommentLi(commentSummary))
-        console.log(commentSummary)
-
+        const commentInput = document.getElementById(`commentInput-${this.drink.id}`)
+        api.addComment(this.drink.id, commentInput.value)
+            .then(comment => {
+                commentInput.value = ""
+                this.addCommentLi(comment)
+            })
     }
 
     handleDeleteComment = (comment, li) => {
