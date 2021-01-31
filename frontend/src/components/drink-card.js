@@ -72,7 +72,8 @@ class DrinkCard {
         api.addComment(this.drink.id, commentInput.value)
             .then(comment => {
                 commentInput.value = ""
-                this.addCommentLi(comment)
+                const newComment = new Comment(comment)
+                this.addCommentLi(newComment)
             })
     }
 
