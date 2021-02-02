@@ -12,10 +12,6 @@ class Drink {
         // Build Associated Drink Card //
         this.card = new DrinkCard(this, comments)
     }
-
-    createDrink = () => {
-
-    }
     
     delete = () => {
         api.deleteDrink(this.id)

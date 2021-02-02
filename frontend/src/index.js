@@ -7,9 +7,14 @@ form.addEventListener("submit", (event) => {
     const name = event.target.name.value
     const caffeine = event.target.caffeine.value
 
+    const ul = document.querySelector("ul")
+
     api.addDrink(name, caffeine)
     .then(drink => {
+        name.value = ""
+        caffeine.value = ""
         const newDrink = new Drink(drink)
+        ul.append(newDrink)
         console.log(newDrink)
     })
 })
