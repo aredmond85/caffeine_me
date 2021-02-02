@@ -15,7 +15,6 @@ form.addEventListener("submit", (event) => {
         caffeine.value = ""
         const newDrink = new Drink(drink)
         ul.append(newDrink)
-        console.log(newDrink)
     })
 })
 

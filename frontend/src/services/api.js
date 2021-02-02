@@ -12,7 +12,7 @@ class API {
     if (response.status === 200) {
       return response.json()
     } else {
-      throw console.error("Nope")
+      return this.catchError
     }
   }
 
@@ -56,7 +56,7 @@ class API {
   addDrink(name, caffeine) {
     const drink = {
       name: name,
-      caffeine: caffeine
+      caffeine: caffeine,
     }
 
     return fetch(this.drinkURL, {
