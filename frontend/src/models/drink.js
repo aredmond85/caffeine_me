@@ -7,16 +7,9 @@ class Drink {
         this.caffeine = data.caffeine
         this.comments = []
 
-        // Build Comment Dependents //
-        // const comments = data.comments.map(comment => new Comment(comment, this))
-
         // Build Associated Drink Card //
         this.card = new DrinkCard(this, this.comments)
     }
-
-    findById(id) {
-        
-   }
     
     delete = () => {
         api.deleteDrink(this.id)

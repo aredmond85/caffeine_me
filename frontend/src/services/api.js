@@ -56,7 +56,7 @@ class API {
   addDrink(name, caffeine) {
     const drink = {
       name: name,
-      caffeine: caffeine,
+      caffeine: caffeine
     }
 
     return fetch(this.drinkURL, {

@@ -11378,3 +11378,442 @@ Processing by DrinksController#index as */*
 Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.5ms | Allocations: 2082)
 
 
+Started POST "/drinks" for ::1 at 2021-02-01 21:09:15 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Coffee", "caffeine"=>"80mg", "drink"=>{"name"=>"Coffee", "caffeine"=>"80mg"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mDrink Create (0.3ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coffee"], ["caffeine", "80mg"], ["created_at", "2021-02-02 03:09:15.732422"], ["updated_at", "2021-02-02 03:09:15.732422"]]
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2242)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:09:19 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>44, "summary"=>"", "comment"=>{"summary"=>"", "drink_id"=>44}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", ""], ["drink_id", 44], ["created_at", "2021-02-02 03:09:19.219336"], ["updated_at", "2021-02-02 03:09:19.219336"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2583)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:09:27 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>44, "summary"=>"test", "comment"=>{"summary"=>"test", "drink_id"=>44}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "test"], ["drink_id", 44], ["created_at", "2021-02-02 03:09:27.943015"], ["updated_at", "2021-02-02 03:09:27.943015"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 2567)
+
+
+Started DELETE "/drinks/43" for ::1 at 2021-02-01 21:09:41 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"43", "drink"=>{}}
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 43], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 43]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms | Allocations: 1740)
+
+
+Started DELETE "/drinks/44" for ::1 at 2021-02-01 21:09:42 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"44", "drink"=>{}}
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 44]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms | Allocations: 1740)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:09:43 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 610)
+
+
+Started POST "/drinks" for ::1 at 2021-02-01 21:10:04 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Coffee", "caffeine"=>"80mg", "drink"=>{"name"=>"Coffee", "caffeine"=>"80mg"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mDrink Create (0.4ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coffee"], ["caffeine", "80mg"], ["created_at", "2021-02-02 03:10:04.848710"], ["updated_at", "2021-02-02 03:10:04.848710"]]
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1785)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:10:18 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>45, "summary"=>"test", "comment"=>{"summary"=>"test", "drink_id"=>45}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "test"], ["drink_id", 45], ["created_at", "2021-02-02 03:10:18.245328"], ["updated_at", "2021-02-02 03:10:18.245328"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2567)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:10:22 -0600
+Processing by DrinksController#index as HTML
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 45]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1501)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:10:40 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>45, "summary"=>"terst", "comment"=>{"summary"=>"terst", "drink_id"=>45}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "terst"], ["drink_id", 45], ["created_at", "2021-02-02 03:10:40.673871"], ["updated_at", "2021-02-02 03:10:40.673871"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2567)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:10:42 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>45, "summary"=>"asdfasd", "comment"=>{"summary"=>"asdfasd", "drink_id"=>45}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "asdfasd"], ["drink_id", 45], ["created_at", "2021-02-02 03:10:42.109764"], ["updated_at", "2021-02-02 03:10:42.109764"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 2567)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:10:44 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>45, "summary"=>"aerwerew", "comment"=>{"summary"=>"aerwerew", "drink_id"=>45}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "aerwerew"], ["drink_id", 45], ["created_at", "2021-02-02 03:10:44.291789"], ["updated_at", "2021-02-02 03:10:44.291789"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2567)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:11:20 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.5ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 45]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.6ms | Allocations: 1834)
+
+
+Started DELETE "/drinks/45" for ::1 at 2021-02-01 21:11:21 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"45", "drink"=>{}}
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 45]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms | Allocations: 1740)
+
+
+Started POST "/drinks" for ::1 at 2021-02-01 21:11:25 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Coffee", "caffeine"=>"80mg", "drink"=>{"name"=>"Coffee", "caffeine"=>"80mg"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mDrink Create (0.3ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coffee"], ["caffeine", "80mg"], ["created_at", "2021-02-02 03:11:25.483363"], ["updated_at", "2021-02-02 03:11:25.483363"]]
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2954)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:11:29 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>46, "summary"=>"a", "comment"=>{"summary"=>"a", "drink_id"=>46}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "a"], ["drink_id", 46], ["created_at", "2021-02-02 03:11:29.242875"], ["updated_at", "2021-02-02 03:11:29.242875"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 2567)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:11:30 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>46, "summary"=>"v", "comment"=>{"summary"=>"v", "drink_id"=>46}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "v"], ["drink_id", 46], ["created_at", "2021-02-02 03:11:30.894207"], ["updated_at", "2021-02-02 03:11:30.894207"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 2567)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:12:03 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 46]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1604)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:12:10 -0600
+Processing by DrinksController#index as HTML
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 46]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 1600)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:12:18 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 46]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1604)
+
+
+Started DELETE "/drinks/46" for ::1 at 2021-02-01 21:12:22 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"46", "drink"=>{}}
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 46]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 1.4ms | Allocations: 1740)
+
+
+Started POST "/drinks" for ::1 at 2021-02-01 21:12:26 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Coffee", "caffeine"=>"80mg", "drink"=>{"name"=>"Coffee", "caffeine"=>"80mg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mDrink Create (0.5ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coffee"], ["caffeine", "80mg"], ["created_at", "2021-02-02 03:12:26.062737"], ["updated_at", "2021-02-02 03:12:26.062737"]]
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 1785)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:12:29 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>47, "summary"=>"ad", "comment"=>{"summary"=>"ad", "drink_id"=>47}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "ad"], ["drink_id", 47], ["created_at", "2021-02-02 03:12:29.148205"], ["updated_at", "2021-02-02 03:12:29.148205"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2568)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:12:31 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>47, "summary"=>"fsdf", "comment"=>{"summary"=>"fsdf", "drink_id"=>47}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "fsdf"], ["drink_id", 47], ["created_at", "2021-02-02 03:12:31.168561"], ["updated_at", "2021-02-02 03:12:31.168561"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2567)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:12:32 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 47]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.3ms | Allocations: 1604)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:13:32 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 47]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.2ms | Allocations: 1604)
+
+
+Started POST "/drinks" for ::1 at 2021-02-01 21:13:42 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Coffee", "caffeine"=>"80mg", "drink"=>{"name"=>"Coffee", "caffeine"=>"80mg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mDrink Create (0.4ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coffee"], ["caffeine", "80mg"], ["created_at", "2021-02-02 03:13:42.021971"], ["updated_at", "2021-02-02 03:13:42.021971"]]
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 1785)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:14:04 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 47]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 48]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 2384)
+
+
+Started DELETE "/drinks/47" for ::1 at 2021-02-01 21:14:05 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"47", "drink"=>{}}
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 47]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms | Allocations: 1740)
+
+
+Started DELETE "/drinks/48" for ::1 at 2021-02-01 21:14:05 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"48", "drink"=>{}}
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.3ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 48]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 3ms (ActiveRecord: 1.3ms | Allocations: 1740)
+
+
+Started POST "/drinks" for ::1 at 2021-02-01 21:14:08 -0600
+Processing by DrinksController#create as */*
+  Parameters: {"name"=>"Coffee", "caffeine"=>"80mg", "drink"=>{"name"=>"Coffee", "caffeine"=>"80mg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mDrink Create (0.4ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "caffeine", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coffee"], ["caffeine", "80mg"], ["created_at", "2021-02-02 03:14:08.817540"], ["updated_at", "2021-02-02 03:14:08.817540"]]
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:20:in `create'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 1786)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:14:29 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>49, "summary"=>"f", "comment"=>{"summary"=>"f", "drink_id"=>49}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "f"], ["drink_id", 49], ["created_at", "2021-02-02 03:14:29.003563"], ["updated_at", "2021-02-02 03:14:29.003563"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2567)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:14:30 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>49, "summary"=>"g", "comment"=>{"summary"=>"g", "drink_id"=>49}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "g"], ["drink_id", 49], ["created_at", "2021-02-02 03:14:30.595136"], ["updated_at", "2021-02-02 03:14:30.595136"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2567)
+
+
+Started POST "/comments" for ::1 at 2021-02-01 21:14:31 -0600
+Processing by CommentsController#create as */*
+  Parameters: {"drink_id"=>49, "summary"=>"a", "comment"=>{"summary"=>"a", "drink_id"=>49}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("summary", "drink_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["summary", "a"], ["drink_id", 49], ["created_at", "2021-02-02 03:14:31.834514"], ["updated_at", "2021-02-02 03:14:31.834514"]]
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2567)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:14:33 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.3ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 49]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1718)
+
+
+Started GET "/drinks" for ::1 at 2021-02-01 21:14:35 -0600
+Processing by DrinksController#index as HTML
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 49]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 1714)
+
+
