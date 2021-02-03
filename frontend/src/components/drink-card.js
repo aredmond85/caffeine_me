@@ -73,8 +73,14 @@ class DrinkCard {
             .then(comment => {
                 commentInput.value = ""
                 const newComment = new Comment(comment)
+                Drink.findById(newComment.drinkId).comments.push(newComment)
                 this.addCommentLi(newComment)
             })
+    }
+
+    handleLoadComment = () => {
+        const newComment = this.drink.comments[this.drink.comments.length - 1]
+        this.addCommentLi(newComment)
     }
 
     handleDeleteComment = (comment, li) => {
@@ -86,4 +92,6 @@ class DrinkCard {
         drink.delete()
         card.remove()
     }
+
+
 }

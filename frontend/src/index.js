@@ -1,23 +1,39 @@
 const api = new API()
 const form = document.getElementById("newDrinkForm")
+const allDrinks = []
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
+document.addEventListener("DOMContentLoaded", function () {
 
-    const name = event.target.name.value
-    const caffeine = event.target.caffeine.value
+    form.addEventListener("submit", (event) => {
+        event.preventDefault()
 
-    api.addDrink(name, caffeine)
-        .then(drink => {
-            name.value = ""
-            caffeine.value = ""
-            const newDrink = new Drink(drink)
-            return newDrink
-        })
-})
+        let name = event.target.name.value
+        let caffeine = event.target.caffeine.value
 
+        api.addDrink(name, caffeine)
+            .then(drink => {
+                const newDrink = new Drink(drink)
+                allDrinks.push(newDrink)
+            })
 
-api.fetchDrinks()
-    .then(data => {
-        data.forEach(drink => new Drink(drink))
+            event.target.reset()
     })
+
+    api.fetchDrinks()
+        .then(data => {
+            data.forEach(drink => {
+                const newDrink = new Drink(drink)
+                allDrinks.push(newDrink)
+            })
+        }).then(() =>
+            api.fetchComments()
+            .then(comments => {
+                comments.forEach(comment => {
+                    const newComment = new Comment(comment)
+                    const drink = Drink.findById(newComment.drinkId)
+                    drink.comments.push(newComment)
+                    drink.card.handleLoadComment()
+                })
+            })
+        )
+})
