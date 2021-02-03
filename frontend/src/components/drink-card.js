@@ -1,5 +1,3 @@
-const main = document.querySelector('main')
-
 class DrinkCard {
     constructor(drink, comments) {
         // Create Card //

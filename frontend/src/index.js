@@ -1,4 +1,7 @@
 const api = new API()
+
+// Global Variables //
+const main = document.querySelector('main')
 const form = document.getElementById("newDrinkForm")
 const allDrinks = []
 

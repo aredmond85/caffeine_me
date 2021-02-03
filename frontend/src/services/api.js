@@ -16,14 +16,6 @@ class API {
     }
   }
 
-  // parseJSON = response => {
-  //   if (response.status === 200) {
-  //     return response.json()
-  //   } else {
-  //     return this.catchError
-  //   }
-  // }
-
   headers = {
     "Accepts": "application/json",
     "Content-Type": "application/json"
@@ -54,7 +46,7 @@ class API {
 
   // Comment Requests //
   fetchComments = () => {
-    return fetch(`http://localhost:3000/comments`).then(this.parseJSON)
+    return fetch(this.commentURL).then(this.parseJSON)
   }
 
   fetchComment = (id) => {
