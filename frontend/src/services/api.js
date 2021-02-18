@@ -90,17 +90,6 @@ class API {
       .catch(this.catchError)
   }
 
-  postComment = (drinkId) => {
-    return fetch(this.commentURL, {
-        method: "POST",
-        headers: this.headers,
-        body: JSON.stringify({
-          drink_id: drinkId
-        })
-      }).then(this.parseJSON)
-      .catch(this.catchError)
-  }
-
   deleteComment = (id) => {
     return fetch(this.commentURL + `/${id}`, {
         method: "DELETE",
