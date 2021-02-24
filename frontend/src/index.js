@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 allDrinks.push(newDrink)
             })
 
-            event.target.reset()
+        event.target.reset()
     })
 
     api.fetchDrinks()
