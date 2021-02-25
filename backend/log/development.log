@@ -21426,3 +21426,601 @@ Processing by DrinksController#create as */*
 Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 2486)
 
 
+Started GET "/drinks" for ::1 at 2021-02-25 15:01:38 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 4]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 56ms (Views: 46.2ms | ActiveRecord: 2.0ms | Allocations: 15574)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:01:38 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 698)
+
+
+Started DELETE "/drinks/4" for ::1 at 2021-02-25 15:01:42 -0600
+Processing by DrinksController#destroy as */*
+  Parameters: {"id"=>"4", "drink"=>{}}
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/drinks_controller.rb:31:in `set_drink'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 4]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mDrink Destroy (0.4ms)[0m  [1m[31mDELETE FROM "drinks" WHERE "drinks"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/drinks_controller.rb:25:in `destroy'
+Completed 204 No Content in 5ms (ActiveRecord: 1.8ms | Allocations: 2689)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:03:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 2290)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:03:58 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:04:04 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 2290)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:04:04 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:04:28 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 2290)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:04:28 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:21 -0600
+Processing by DrinksController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 2862)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:21 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 686)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:45 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:45 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:50 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:50 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (7.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 17ms (Views: 9.0ms | ActiveRecord: 7.7ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:56 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.1ms | Allocations: 672)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.5ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.8ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:57 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 1.1ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:12:58 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:12:59 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 1.4ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:14:55 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:14:55 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:16:13 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:16:13 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:16:45 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.6ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.9ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:16:45 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:17:06 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:17:06 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:18:10 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:18:10 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:20:38 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:20:38 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:21:52 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.6ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:21:52 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.1ms | Allocations: 672)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:27:06 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:27:06 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 671)
+
+
+Started GET "/drinks" for ::1 at 2021-02-25 15:27:40 -0600
+Processing by DrinksController#index as */*
+  [1m[36mDrink Load (0.2ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 1]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."drink_id" = ?[0m  [["drink_id", 3]]
+  ↳ app/controllers/drinks_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.5ms | Allocations: 2270)
+
+
+Started GET "/comments" for ::1 at 2021-02-25 15:27:40 -0600
+Processing by CommentsController#index as */*
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 671)
+
+

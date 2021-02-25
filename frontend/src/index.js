@@ -3,10 +3,12 @@ const api = new API()
 // Global Variables //
 const main = document.querySelector('main')
 const form = document.getElementById("newDrinkForm")
+const darkButton = document.getElementById("dark-button")
 const allDrinks = []
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // Event listener for form and adding a new Drink to the API //
     form.addEventListener("submit", (event) => {
         event.preventDefault()
 
@@ -39,4 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
             })
         )
+})
+
+// Adds Dark Mode to application //
+darkButton.addEventListener("click", () => {
+    if (document.body.style.backgroundColor === "") {
+        document.body.style.backgroundColor = "black";
+        document.querySelector("h1").style.color = "white";
+        document.querySelectorAll("label").forEach(element => element.style.color = "white")
+    } else {
+        document.body.style.backgroundColor = ""
+        document.querySelector("h1").style.color = "black";
+        document.querySelectorAll("label").forEach(element => element.style.color = "black")
+    }
 })

@@ -44,15 +44,6 @@ class API {
     return fetch(this.drinkURL + `/${id}`).then(this.parseJSON)
   }
 
-  // Comment Requests //
-  fetchComments = () => {
-    return fetch(this.commentURL).then(this.parseJSON)
-  }
-
-  fetchComment = (id) => {
-    return fetch(this.commentURL + `/${id}`).then(this.parseJSON)
-  }
-
   addDrink(name, caffeine) {
     const drink = {
       name: name,
@@ -73,6 +64,15 @@ class API {
         headers: this.headers
       }).then(this.parseJSON)
       .catch(this.catchError)
+  }
+
+  // Comment Requests //
+  fetchComments = () => {
+    return fetch(this.commentURL).then(this.parseJSON)
+  }
+
+  fetchComment = (id) => {
+    return fetch(this.commentURL + `/${id}`).then(this.parseJSON)
   }
 
   addComment(drinkId, commentSummary) {
