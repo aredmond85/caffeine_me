@@ -75,7 +75,6 @@ class API {
       .catch(this.catchError)
   }
 
-  // Comment POST/DELETE/Add Functions
   addComment(drinkId, commentSummary) {
     const comment = {
       drink_id: drinkId,

@@ -65,6 +65,7 @@ class DrinkCard {
     }
 
     // Event Handlers //
+    // Handle Adding Comment to the DOM //
     handleAddComment = () => {
         const commentInput = document.getElementById(`commentInput-${this.drink.id}`)
         api.addComment(this.drink.id, commentInput.value)
@@ -76,16 +77,19 @@ class DrinkCard {
             })
     }
 
+    // Loads last comment created for drink object //
     handleLoadComment = () => {
         const newComment = this.drink.comments[this.drink.comments.length - 1]
         this.addCommentLi(newComment)
     }
 
+    // Deletes Comment from API and Removes li //
     handleDeleteComment = (comment, li) => {
         comment.delete()
         li.remove()
     }
 
+    // Deletes Drink from API and Removes drink card //
     handleDeleteDrink = (drink, card) => {
         drink.delete()
         card.remove()
