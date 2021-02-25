@@ -46,6 +46,7 @@ darkButton.addEventListener("click", () => {
         document.body.style.backgroundColor = "black";
         document.querySelector("h1").style.color = "white";
         document.getElementById("dark-button").className = "btn btn-light";
+        document.getElementById("dark-button").value = "Light Mode";
         document.querySelectorAll("label").forEach(element =>
             element.style.color = "white"
         )
@@ -53,6 +54,7 @@ darkButton.addEventListener("click", () => {
         document.body.style.backgroundColor = ""
         document.querySelector("h1").style.color = "black";
         document.getElementById("dark-button").className = "btn btn-dark";
+        document.getElementById("dark-button").value = "Dark Mode";
         document.querySelectorAll("label").forEach(element =>
             element.style.color = "black"
         )
