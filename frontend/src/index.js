@@ -38,8 +38,6 @@ form.addEventListener("submit", (event) => {
             const newDrink = new Drink(drink)
             allDrinks.push(newDrink)
         })
-
-    event.target.reset()
 })
 
 api.fetchDrinks()
