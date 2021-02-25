@@ -45,12 +45,14 @@ darkButton.addEventListener("click", () => {
     if (document.body.style.backgroundColor === "") {
         document.body.style.backgroundColor = "black";
         document.querySelector("h1").style.color = "white";
+        document.getElementById("dark-button").className = "btn btn-light";
         document.querySelectorAll("label").forEach(element =>
             element.style.color = "white"
         )
     } else {
         document.body.style.backgroundColor = ""
         document.querySelector("h1").style.color = "black";
+        document.getElementById("dark-button").className = "btn btn-dark";
         document.querySelectorAll("label").forEach(element =>
             element.style.color = "black"
         )
