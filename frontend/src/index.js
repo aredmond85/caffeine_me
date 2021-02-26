@@ -4,6 +4,7 @@ const api = new API()
 const main = document.querySelector('main')
 const form = document.getElementById("newDrinkForm")
 const darkButton = document.getElementById("dark-button")
+const sortDesc = document.getElementById("sortDesc")
 const allDrinks = []
 
 // Adds Dark Mode to application //
@@ -25,6 +26,20 @@ darkButton.addEventListener("click", () => {
             element.style.color = "black"
         )
     }
+})
+
+sortDesc.addEventListener("click", () => {
+    const sortedArray = allDrinks.sort((a, b) => {
+        const nameA = a.name.toLowerCase(),
+            nameB = b.name.toLowerCase()
+        if (nameA < nameB) //sort string ascending
+            return 1
+        if (nameA > nameB)
+            return -1
+        return 0 //default return value (no sorting)
+    })
+    console.log(sortedArray)
+    sortedArray.forEach(drinkCard => console.log(drinkCard))    
 })
 
 // Event listener for form and adding a new Drink to the API //
@@ -57,5 +72,3 @@ api.fetchDrinks()
             })
         })
     )
-
-

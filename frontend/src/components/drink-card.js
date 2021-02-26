@@ -7,7 +7,7 @@ class DrinkCard {
         card.className = 'card'
 
         // Add Nameplate //
-        const drinkTag = document.createElement('p')
+        const drinkTag = document.createElement('h3')
         drinkTag.innerText = drink.name
         card.append(drinkTag)
 
@@ -94,6 +94,4 @@ class DrinkCard {
         drink.delete()
         card.remove()
     }
-
-
 }
