@@ -29,7 +29,7 @@ darkButton.addEventListener("click", () => {
 })
 
 sortDesc.addEventListener("click", () => {
-    const sortedArray = allDrinks.sort((a, b) => {
+    allDrinks.sort((a, b) => {
         const nameA = a.name.toLowerCase(),
             nameB = b.name.toLowerCase()
         if (nameA < nameB) //sort string ascending
@@ -38,8 +38,24 @@ sortDesc.addEventListener("click", () => {
             return -1
         return 0 //default return value (no sorting)
     })
-    console.log(sortedArray)
-    sortedArray.forEach(drinkCard => console.log(drinkCard))    
+
+    allDrinks.forEach(drink => {
+        console.log(drink)
+        const h3 = document.querySelector('.card h3')
+        const p = document.querySelector('.card p')
+        if (h3.innerText !== drink.name) {
+            h3.innerText = drink.name
+            p.innerText = `Caffeine Amount - ${drink.caffeine}`
+        } else {
+            h3.innerText
+            p.innerText
+        }
+        console.log(h3.innerText)
+        console.log(drink.name)
+        console.log(p.innerText)
+        console.log(`Caffeine Amount - ${drink.caffeine}`)
+
+    })
 })
 
 // Event listener for form and adding a new Drink to the API //
@@ -53,6 +69,8 @@ form.addEventListener("submit", (event) => {
             const newDrink = new Drink(drink)
             allDrinks.push(newDrink)
         })
+
+        event.target.reset()
 })
 
 api.fetchDrinks()
