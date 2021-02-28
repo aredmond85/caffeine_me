@@ -22,8 +22,7 @@ class Drink {
     }
 
     render(node) {
-        // this method will render each card; el is a reference to a DOM node
+        // this method will render each card; node is a reference to a DOM node
         node.appendChild(this.card.cardContent);
-  
      }
 }

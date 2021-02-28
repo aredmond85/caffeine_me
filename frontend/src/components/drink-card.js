@@ -47,6 +47,7 @@ class DrinkCard {
         // Connects to Drink //
         this.drink = drink
 
+        // Connects to card to cardContent //
         this.cardContent = card;
         }
 
