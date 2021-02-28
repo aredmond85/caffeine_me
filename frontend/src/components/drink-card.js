@@ -1,10 +1,11 @@
 class DrinkCard {
     constructor(drink, comments) {
+        
         // Create Card //
         const card = document.createElement('div')
         card.setAttribute("class", "card w-50")
         main.append(card)
-        card.className = 'card'
+        card.className = 'card'    
 
         // Add Nameplate //
         const drinkTag = document.createElement('h3')

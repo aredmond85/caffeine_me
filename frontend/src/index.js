@@ -28,13 +28,13 @@ darkButton.addEventListener("click", () => {
     }
 })
 
-sortDesc.addEventListener("click", () => {
+sortAsc.addEventListener("click", () => {
     const sortedArray = allDrinks.sort((a, b) => {
         const nameA = a.name.toLowerCase(),
             nameB = b.name.toLowerCase()
-        if (nameA < nameB) //sort string descending
+        if (nameA > nameB) //sort string ascending
             return 1
-        if (nameA > nameB)
+        if (nameA < nameB)
             return -1
         return 0 //default return value (no sorting)
     })
@@ -48,14 +48,14 @@ sortDesc.addEventListener("click", () => {
 
 })
 
-sortAsc.addEventListener("click", () => {
+sortDesc.addEventListener("click", () => {
     const sortedArray = allDrinks.sort((a, b) => {
         const nameA = a.name.toLowerCase(),
             nameB = b.name.toLowerCase()
-        if (nameA < nameB) //sort string ascending
-            return -1
-        if (nameA > nameB)
+        if (nameA < nameB) //sort string descending
             return 1
+        if (nameA > nameB)
+            return -1
         return 0 //default return value (no sorting)
     })
 
