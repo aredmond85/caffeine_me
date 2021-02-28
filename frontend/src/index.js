@@ -29,34 +29,44 @@ darkButton.addEventListener("click", () => {
 })
 
 sortDesc.addEventListener("click", () => {
-    allDrinks.sort((a, b) => {
+   const sortedArray = allDrinks.sort((a, b) => {
         const nameA = a.name.toLowerCase(),
             nameB = b.name.toLowerCase()
-        if (nameA < nameB) //sort string ascending
+        if (nameA < nameB) //sort string descending
             return 1
         if (nameA > nameB)
             return -1
         return 0 //default return value (no sorting)
     })
 
-    allDrinks.forEach(drink => {
-        console.log(drink)
-        const h3 = document.querySelector('.card h3')
-        const p = document.querySelector('.card p')
-        if (h3.innerText !== drink.name) {
-            h3.innerText = drink.name
-            p.innerText = `Caffeine Amount - ${drink.caffeine}`
-        } else {
-            h3.innerText
-            p.innerText
-        }
-        console.log(h3.innerText)
-        console.log(drink.name)
-        console.log(p.innerText)
-        console.log(`Caffeine Amount - ${drink.caffeine}`)
+    const renderedContent = document.createElement('div');
+    renderedContent.setAttribute('id', 'rendered-content');
+    document.body.appendChild(renderedContent);
+    
+    const node = document.getElementById('rendered-content');
+    sortedArray.forEach(card => card.render(node));
 
-    })
 })
+
+sortAsc.addEventListener("click", () => {
+    const sortedArray = allDrinks.sort((a, b) => {
+         const nameA = a.name.toLowerCase(),
+             nameB = b.name.toLowerCase()
+         if (nameA < nameB) //sort string ascending
+             return -1
+         if (nameA > nameB)
+             return 1
+         return 0 //default return value (no sorting)
+     })
+ 
+     const renderedContent = document.createElement('div');
+     renderedContent.setAttribute('id', 'rendered-content');
+     document.body.appendChild(rc);
+     
+     const node = document.getElementById('rendered-content');
+     sortedArray.forEach(card => card.render(node));
+ 
+ })
 
 // Event listener for form and adding a new Drink to the API //
 form.addEventListener("submit", (event) => {
@@ -70,7 +80,7 @@ form.addEventListener("submit", (event) => {
             allDrinks.push(newDrink)
         })
 
-        event.target.reset()
+    event.target.reset()
 })
 
 api.fetchDrinks()

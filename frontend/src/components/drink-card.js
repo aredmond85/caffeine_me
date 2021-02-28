@@ -46,7 +46,9 @@ class DrinkCard {
 
         // Connects to Drink //
         this.drink = drink
-    }
+
+        this.cardContent = card;
+        }
 
     // Helpers //
 
