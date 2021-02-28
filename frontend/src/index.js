@@ -29,7 +29,7 @@ darkButton.addEventListener("click", () => {
 })
 
 sortDesc.addEventListener("click", () => {
-   const sortedArray = allDrinks.sort((a, b) => {
+    const sortedArray = allDrinks.sort((a, b) => {
         const nameA = a.name.toLowerCase(),
             nameB = b.name.toLowerCase()
         if (nameA < nameB) //sort string descending
@@ -42,7 +42,7 @@ sortDesc.addEventListener("click", () => {
     const renderedContent = document.createElement('div');
     renderedContent.setAttribute('id', 'rendered-content');
     document.body.appendChild(renderedContent);
-    
+
     const node = document.getElementById('rendered-content');
     sortedArray.forEach(card => card.render(node));
 
@@ -50,23 +50,23 @@ sortDesc.addEventListener("click", () => {
 
 sortAsc.addEventListener("click", () => {
     const sortedArray = allDrinks.sort((a, b) => {
-         const nameA = a.name.toLowerCase(),
-             nameB = b.name.toLowerCase()
-         if (nameA < nameB) //sort string ascending
-             return -1
-         if (nameA > nameB)
-             return 1
-         return 0 //default return value (no sorting)
-     })
- 
-     const renderedContent = document.createElement('div');
-     renderedContent.setAttribute('id', 'rendered-content');
-     document.body.appendChild(rc);
-     
-     const node = document.getElementById('rendered-content');
-     sortedArray.forEach(card => card.render(node));
- 
- })
+        const nameA = a.name.toLowerCase(),
+            nameB = b.name.toLowerCase()
+        if (nameA < nameB) //sort string ascending
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0 //default return value (no sorting)
+    })
+
+    const renderedContent = document.createElement('div');
+    renderedContent.setAttribute('id', 'rendered-content');
+    document.body.appendChild(renderedContent);
+
+    const node = document.getElementById('rendered-content');
+    sortedArray.forEach(card => card.render(node));
+
+})
 
 // Event listener for form and adding a new Drink to the API //
 form.addEventListener("submit", (event) => {
